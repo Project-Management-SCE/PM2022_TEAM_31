@@ -1,0 +1,34 @@
+pipeline {
+    agent none
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'androidsdk/android-31:latest'
+                }
+            }
+            steps {
+		echo 'Clean Previous Build'
+                sh './gradlew clean'
+		echo 'Create New Build'
+		sh './gradlew assembleDebug'
+            }
+        }
+        stage('Test') {
+            agent {
+                docker {
+                    image 'androidsdk/android-31:latest'
+                }
+            }
+            steps {
+		echo 'Testing Now'
+                sh './gradlew clean test --no-daemon'
+            }
+	    post {
+                always {
+                    junit '**/build/test-results/test/*.xml'
+                }
+	
+        }
+    }
+}
