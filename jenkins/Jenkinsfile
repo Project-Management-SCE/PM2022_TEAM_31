@@ -8,10 +8,10 @@ pipeline {
                 }
             }
             steps {
-		echo 'Clean Previous Build'
+		        echo 'Clean Previous Build'
                 sh './gradlew clean'
-		echo 'Create New Build'
-		sh './gradlew assembleDebug'
+		        echo 'Create New Build'
+		        sh './gradlew assembleDebug'
             }
         }
         stage('Test') {
@@ -21,13 +21,14 @@ pipeline {
                 }
             }
             steps {
-		echo 'Testing Now'
+		        echo 'Testing Now'
                 sh './gradlew clean test --no-daemon'
             }
-	    post {
+	        post {
                 always {
                     junit '**/build/test-results/test/*.xml'
                 }
+            }
 	
         }
     }
