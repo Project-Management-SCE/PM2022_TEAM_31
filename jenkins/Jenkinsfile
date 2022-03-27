@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-			sh 'sdkmanager --update'
+			sh 'yes | ~/Android/Sdk/tools/bin/sdkmanager --licenses'
 		        echo 'Create New Build'
 		    	sh 'chmod +x gradlew'
 		        sh './gradlew assembleDebug'
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
             steps {
-			sh 'sdkmanager --update'
+			sh 'yes | ~/Android/Sdk/tools/bin/sdkmanager --licenses'
 		    	echo 'Testing Now'
 		    	sh 'chmod +x gradlew'
                     	sh './gradlew clean test --no-daemon'
