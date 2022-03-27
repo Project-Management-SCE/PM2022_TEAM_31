@@ -8,8 +8,6 @@ pipeline {
                 }
             }
             steps {
-		        echo 'Clean Previous Build'
-                sh './gradlew clean'
 		        echo 'Create New Build'
 		        sh './gradlew assembleDebug'
             }
