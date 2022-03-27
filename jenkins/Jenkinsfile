@@ -8,6 +8,8 @@ pipeline {
                 }
             }
             steps {
+		    	sh 'cd ~/Library/Android/sdk/build-tools/31.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
+		    	sh 'cd'
 		        echo 'Create New Build'
 		    	sh 'chmod +x gradlew'
 		        sh './gradlew assembleDebug'
@@ -20,13 +22,15 @@ pipeline {
                 }
             }
             steps {
-		    echo 'Testing Now'
-		    sh 'chmod +x gradlew'
-                    sh './gradlew clean test --no-daemon'
+			sh 'cd ~/Library/Android/sdk/build-tools/31.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
+		    	sh 'cd'
+		    	echo 'Testing Now'
+		    	sh 'chmod +x gradlew'
+                    	sh './gradlew clean test --no-daemon'
             }
 	        post {
                 always {
-                    junit '**/build/test-results/test/*.xml'
+                    	junit '**/build/test-results/test/*.xml'
                 }
             }
 	
