@@ -17,10 +17,13 @@ pipeline {
 		steps {
 			echo 'Testing Now'
 			sh 'chmod +x gradlew'
-			sh './gradlew clean test --no-daemon' //run a gradle task
-                   
-               		 
+			sh './gradlew clean test --no-daemon' //run a gradle task 
 		}
+	        post {
+                	always {
+                    		junit 'build/test-results/test/*.xml'
+                	}
+            	}
 	}
     }
 }
