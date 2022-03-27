@@ -1,12 +1,11 @@
 pipeline {
-    agent none
-    stages {
-        stage('Build') {
-            agent {
-                docker {
+    agent {
+       		docker {
                     image 'androidsdk/android-31:latest'
                 }
             }
+    stages {
+        stage('Build') {
             steps {
 			
 		        echo 'Create New Build'
@@ -14,22 +13,19 @@ pipeline {
 		        sh './gradlew assembleDebug'
             }
         }
-        stage('Test') {
-            agent {
-                docker {
-                    image 'androidsdk/android-31:latest'
-                }
-            }
-            steps {
-			
-		    	echo 'Testing Now'
-		    	sh 'chmod +x gradlew'
-                    	sh './gradlew clean test --no-daemon'
-            }
-	        post {
-                always {
-                    	junit '**/build/test-results/test/*.xml'
-                }
+	stage('Test') {
+		steps {
+			script {
+				try {
+					echo 'Testing Now'
+		    			sh 'chmod +x gradlew'
+                        		sh './gradlew clean test --no-daemon' //run a gradle task
+                    		} finally {
+                        		junit '**/build/test-results/test/*.xml' //make the junit test results available in any case (success & failure)
+                    		}
+               		 }
+            	}
+   
             }
 	
         }
