@@ -1,12 +1,12 @@
 pipeline {
-	agent {
-		docker {
-			image 'androidsdk/android-31:latest'
-		}
-	}
+    agent none
     stages {
         stage('Build') {
-
+		agent {
+			docker {
+				image 'androidsdk/android-31:latest'
+			}
+		}
             	steps {	
 		        echo 'Create New Build'
 		    	sh 'chmod +x gradlew'
@@ -14,6 +14,11 @@ pipeline {
             	}
         }
 	stage('Test') {
+		agent {
+			docker {
+				image 'androidsdk/android-31:latest'
+			}
+		}
 		steps {
 			echo 'No tests for now'
 			/*script {
