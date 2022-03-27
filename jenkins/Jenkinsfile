@@ -18,10 +18,18 @@ pipeline {
 			echo 'Testing Now'
 			sh 'chmod +x gradlew'
 			sh './gradlew clean test --no-daemon' //run a gradle task 
+			sh 'ls'
+			sh 'cd build/reports/tests/'
+			sh 'ls'
+			sh 'cd /test'
+			sh 'ls'
+			sh 'cd'
+			sh 'build/test-results'
+			sh 'ls'
 		}
 	        post {
                 	always {
-                    		junit 'build/test-results/test/*.xml'
+                    		junit 'build/test-results/*.xml'
                 	}
             	}
 	}
