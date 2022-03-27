@@ -8,8 +8,7 @@ pipeline {
                 }
             }
             steps {
-		    	sh 'cd ~/Library/Android/sdk/build-tools/32.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
-		    	sh 'cd'
+			sh 'sdkmanager --update'
 		        echo 'Create New Build'
 		    	sh 'chmod +x gradlew'
 		        sh './gradlew assembleDebug'
@@ -22,8 +21,7 @@ pipeline {
                 }
             }
             steps {
-			sh 'cd ~/Library/Android/sdk/build-tools/32.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
-		    	sh 'cd'
+			sh 'sdkmanager --update'
 		    	echo 'Testing Now'
 		    	sh 'chmod +x gradlew'
                     	sh './gradlew clean test --no-daemon'
