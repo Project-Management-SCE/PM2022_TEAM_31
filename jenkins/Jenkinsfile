@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-		    	sh 'cd ~/Library/Android/sdk/build-tools/31.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
+		    	sh 'cd ~/Library/Android/sdk/build-tools/32.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
 		    	sh 'cd'
 		        echo 'Create New Build'
 		    	sh 'chmod +x gradlew'
@@ -22,7 +22,7 @@ pipeline {
                 }
             }
             steps {
-			sh 'cd ~/Library/Android/sdk/build-tools/31.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
+			sh 'cd ~/Library/Android/sdk/build-tools/32.0.0 && mv d8 dx && cd lib  && mv d8.jar dx.jar'
 		    	sh 'cd'
 		    	echo 'Testing Now'
 		    	sh 'chmod +x gradlew'
