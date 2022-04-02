@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857698894235",
+    "project_id": "getoverhere-8d446",
+    "storage_bucket": "getoverhere-8d446.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857698894235:android:2025fa12f39c0b8303213e",
+        "android_client_info": {
+          "package_name": "com.subzzz.getoverhere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857698894235-l7vu7ukgdb9uq823rr01jcud98dp8for.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhSJjAxwWXwEsGTIez90a2ifaSxb5Ej2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857698894235-l7vu7ukgdb9uq823rr01jcud98dp8for.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
