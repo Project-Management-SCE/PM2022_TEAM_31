@@ -1,35 +1,29 @@
 pipeline {
-    agent none
+	agent {
+		docker {
+			image 'androidsdk/android-31:latest'
+		}
+	}
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'androidsdk/android-31:latest'
-                }
-            }
-            steps {
-		        echo 'Clean Previous Build'
-                sh './gradlew clean'
+            	steps {	
 		        echo 'Create New Build'
+		    	sh 'chmod +x gradlew'
 		        sh './gradlew assembleDebug'
-            }
+            	}
         }
-        stage('Test') {
-            agent {
-                docker {
-                    image 'androidsdk/android-31:latest'
-                }
-            }
-            steps {
-		        echo 'Testing Now'
-                sh './gradlew clean test --no-daemon'
-            }
+	stage('Test') {
+
+		steps {
+			echo 'Testing Now'
+			sh 'chmod +x gradlew'
+			sh './gradlew clean test --no-daemon' //run a gradle task 
+		}
 	        post {
-                always {
-                    junit '**/build/test-results/test/*.xml'
-                }
-            }
-	
-        }
+                	always {
+                    		junit 'app/build/test-results/testDebugUnitTest/*.xml'
+                	}
+            	}
+	}
     }
 }
