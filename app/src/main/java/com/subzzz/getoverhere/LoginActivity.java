@@ -61,6 +61,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             assert user != null;
                             final String currentUserId = user.getUid();
+
+                            collectionReference.whereEqualTo("userId",currentUserId);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -83,13 +85,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(@NonNull View view) {
         switch (view.getId()){
-            case R.id.://add
+            case R.id.://add login btn
 
                 break;
-            case R.id.://add
-
+            case R.id.://add create btn
+                createAccActivity(view);
                 break;
 
             default:
