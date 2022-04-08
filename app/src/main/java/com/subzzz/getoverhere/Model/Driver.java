@@ -9,6 +9,13 @@ public class Driver extends  User{
         super();
     }
 
+    public Driver(String userId, String email, String firstName, String lastName, String userName, String idNum, String licenceNum, String bankAccountNum, float rank) {
+        super(userId, email, firstName, lastName, userName, idNum, "Driver");
+        this.licenceNum = licenceNum;
+        BankAccountNum = bankAccountNum;
+        this.rank = rank;
+    }
+
     public Driver(String email, String firstName, String lastName, String userName, String idNum, String licenceNum, String bankAccountNum, float rank) {
         super(email, firstName, lastName, userName, idNum, "Driver");
         this.licenceNum = licenceNum;
