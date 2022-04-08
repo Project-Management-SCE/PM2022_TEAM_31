@@ -1,6 +1,7 @@
 package com.subzzz.getoverhere.Model;
 
-public abstract class User {
+public class User {
+    private String userId;
     private String email;
     private String firstName;
     private String lastName;
@@ -10,7 +11,17 @@ public abstract class User {
 
     public User(){}
 
-    public User(String email, String firstName, String lastName, String userName, String idNum,String UType) {
+    public User(String email, String firstName, String lastName, String userName, String idNum, String UType) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.idNum = idNum;
+        this.UType = UType;
+    }
+
+    public User(String userId, String email, String firstName, String lastName, String userName, String idNum, String UType) {
+        this.userId = userId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -66,4 +77,8 @@ public abstract class User {
     public void setUType(String UType) {
         this.UType = UType;
     }
+
+    public String getUserId() { return userId; }
+
+    public void setUserId(String userId) { this.userId = userId; }
 }
