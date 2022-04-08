@@ -6,6 +6,7 @@ import com.subzzz.getoverhere.Model.User;
 
 public class UserApi extends Application {
     private User currentUser;
+    private String UType;
     private static UserApi instance;
 
     public static UserApi getInstance(){
@@ -13,6 +14,14 @@ public class UserApi extends Application {
             instance = new UserApi();
         }
         return instance;
+    }
+
+    public String getUType() {
+        return UType;
+    }
+
+    public void setUType(String UType) {
+        this.UType = UType;
     }
 
     public User getCurrentUser() {
