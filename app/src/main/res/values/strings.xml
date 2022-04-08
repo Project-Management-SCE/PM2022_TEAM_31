@@ -12,6 +12,7 @@
     <string name="user_name">User name</string>
     <string name="submit">Submit</string>
     <string name="register">register</string>
+    <string name="email">Email</string>
     <string-array name="gender">
         <item id="NS">Not Specific</item>
         <item id="male">Male</item>
