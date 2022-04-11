@@ -10,5 +10,10 @@
     <color name="colorPrimary">#108277</color>
     <color name="colorPrimaryDark">#005748</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="Gold_Foil">#C1950E</color>
+    <color name="Jonquil">#E3C519</color>
+    <color name="Vampire_Black">#0B0B0B</color>
+    <color name="Raisin_Black">#262626</color>
+    <color name="Tumbleweed">#D6A792</color>
 
 </resources>
