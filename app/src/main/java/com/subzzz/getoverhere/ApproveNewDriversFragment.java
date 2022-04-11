@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -75,6 +77,15 @@ public class ApproveNewDriversFragment extends Fragment implements RecyclerViewA
 
     @Override
     public void OnApplicantClick(int position) {
+       DriverApplicant applicant = applicantList.get(position);
+       Bundle bundle =  new Bundle();
+       bundle.putParcelable("applicant",applicant);
+
+       FragmentManager fm =  getParentFragmentManager();
+       Fragment fragment = new DisplayAplicantFragment();
+
+        fragment.setArguments(bundle);
+        fm.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit();
 
     }
 }
