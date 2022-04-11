@@ -45,4 +45,8 @@
         <item id="E">E</item>
     </string-array>
 
+    <string name="applicantTitle">Applicant</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="comments">Comments</string>
 </resources>
