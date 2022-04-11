@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuProfile"
+        android:icon="@drawable/profile"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/menuNotifications"
+        android:icon="@drawable/notifications"
+        android:title="Notifications"/>
+
+    <item
+        android:id="@+id/menuOrders"
+        android:icon="@drawable/history"
+        android:title="History"/>
+
+    <item android:title="Settings">
+
+        <menu>
+
+            /*implement more if needed*/
+
+        </menu>
+    </item>
+
+</menu>
