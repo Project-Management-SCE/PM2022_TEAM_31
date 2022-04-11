@@ -34,11 +34,10 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
     private Button createAccBtn;
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReference = db.collection("Users");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference collectionReference = db.collection("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_create_acc);
         //TODO add components by findId
 
-
+        firebaseAuth = FirebaseAuth.getInstance();
         createAccBtn.setOnClickListener(this);
     }
     private void createNewAccount(View v){
@@ -72,28 +71,23 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
             return;
         }
 
-        firebaseAuth.createUserWithEmailAndPassword(emailAddr,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-//                    currentUser = firebaseAuth.getCurrentUser();
-//                    assert currentUser != null;
-//                    final String currentUserId;
+        firebaseAuth.createUserWithEmailAndPassword(emailAddr,password).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                    currentUser = firebaseAuth.getCurrentUser();
+                    assert currentUser != null;
+                    final String currentUserId = currentUser.getUid();
 
-                    Passenger newPassenger = new Passenger(emailAddr,fname,lname,username,idnumber);
-                    collectionReference.document(idnumber).set(newPassenger).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    startActivity(new Intent(CreateAccActivity.this,
-                                            MainActivity.class));
-                                }
-                            });
-                }
+                Passenger newPassenger = new Passenger(currentUserId,emailAddr,fname,lname,username,idnumber);
+                collectionReference.document(idnumber).set(newPassenger).
+                        addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                startActivity(new Intent(CreateAccActivity.this,
+                                        MainActivity.class));
+                            }
+                        });
             }
         });
-
-
     }
 
     private boolean isPassSame(String pass,String confirmPass){
@@ -111,20 +105,13 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id:
-                    createNewAccount(view);
-                break;
-            default:
-                break;
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        currentUser = firebaseAuth.getCurrentUser();
-        firebaseAuth.addAuthStateListener(authStateListener);
+//        switch (view.getId()){
+//            case R.id.:
+//                    createNewAccount(view);
+//                break;
+//            default:
+//                break;
+//        }
     }
 
 }
