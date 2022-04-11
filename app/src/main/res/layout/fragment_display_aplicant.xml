@@ -51,7 +51,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/CommentsText" />
 
                 <ImageView
-                    android:id="@+id/LicenceImageView"
+                    android:id="@+id/licenceImageView"
                     android:layout_width="400dp"
                     android:layout_height="300dp"
                     android:layout_marginTop="40dp"
@@ -67,7 +67,7 @@
                     android:layout_marginTop="40dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LicenceImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/licenceImageView"
                     tools:src="@tools:sample/backgrounds/scenic" />
 
                 <TextView
@@ -112,6 +112,26 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/idImageView" />
+
+                <ImageView
+                    android:id="@+id/imageZoomLicence"
+                    android:layout_width="87dp"
+                    android:layout_height="83dp"
+                    android:src="@android:drawable/ic_menu_zoom"
+                    app:layout_constraintBottom_toBottomOf="@+id/licenceImageView"
+                    app:layout_constraintEnd_toEndOf="@+id/licenceImageView"
+                    app:layout_constraintStart_toStartOf="@+id/licenceImageView"
+                    app:layout_constraintTop_toTopOf="@+id/licenceImageView" />
+
+                <ImageView
+                    android:id="@+id/imageZoomId"
+                    android:layout_width="87dp"
+                    android:layout_height="83dp"
+                    android:src="@android:drawable/ic_menu_zoom"
+                    app:layout_constraintBottom_toBottomOf="@+id/idImageView"
+                    app:layout_constraintEnd_toEndOf="@+id/idImageView"
+                    app:layout_constraintStart_toStartOf="@+id/idImageView"
+                    app:layout_constraintTop_toTopOf="@+id/idImageView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
