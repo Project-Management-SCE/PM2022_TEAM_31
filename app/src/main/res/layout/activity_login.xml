@@ -20,12 +20,13 @@
             android:textColor="#33adff"
             android:textSize="30sp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/emailT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/email"
+            android:hint="@string/prompt_email"
             android:inputType="textEmailAddress" />
 
         <TextView
