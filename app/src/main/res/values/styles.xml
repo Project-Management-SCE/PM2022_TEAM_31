@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<<<<<<< HEAD
+
     <style name="TextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
@@ -9,7 +9,8 @@
         <item name="android:background">@color/Jonquil</item>
         <item name="android:padding">@dimen/elevation</item>
         <item name="android:textStyle">bold</item>
-=======
+    </style>
+
     <!-- GettOverHere -->
     <style name="AppTheme" parent= "Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customization -->
@@ -17,6 +18,6 @@
         <item name= "colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name= "colorAccent">@color/colorAccent</item>
 
->>>>>>> e2cf32c (BSPM2022T31-59 menu for user, navigation bar.)
+
     </style>
 </resources>
