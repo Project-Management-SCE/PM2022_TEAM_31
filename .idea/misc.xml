@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/GetOverHere/app/src/main/res/layout/activity_create_acc.xml" value="0.1703125" />
         <entry key="..\:/GetOverHere/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/PM2022_TEAM_31/app/src/main/res/layout/activity_update_user_details.xml" value="0.26373626373626374" />
+        <entry key="..\:/PM2022_TEAM_31/app/src/main/res/layout/fragment_update_user_info.xml" value="0.33" />
       </map>
     </option>
   </component>
