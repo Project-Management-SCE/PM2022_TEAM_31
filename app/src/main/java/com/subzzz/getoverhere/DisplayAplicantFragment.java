@@ -1,5 +1,6 @@
 package com.subzzz.getoverhere;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,15 +14,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 import com.subzzz.getoverhere.Model.DriverApplicant;
 
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DisplayAplicantFragment extends Fragment implements View.OnClickListener {
      private DriverApplicant applicant;
@@ -38,8 +46,10 @@ public class DisplayAplicantFragment extends Fragment implements View.OnClickLis
      private ImageView idImageView;
      private ImageView licenceZoom;
      private ImageView idZoom;
+     private ImageView zoomedImage;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
 
 
 
@@ -75,6 +85,7 @@ public class DisplayAplicantFragment extends Fragment implements View.OnClickLis
         idImageView = appCompatActivity.findViewById(R.id.idImageView);
         licenceZoom = appCompatActivity.findViewById(R.id.imageZoomLicence);
         idZoom = appCompatActivity.findViewById(R.id.imageZoomId);
+        zoomedImage = appCompatActivity.findViewById(R.id.expanded_image);
 
         approve = appCompatActivity.findViewById(R.id.approveBtn);
         reject = appCompatActivity.findViewById(R.id.rejectBtn);
@@ -83,10 +94,10 @@ public class DisplayAplicantFragment extends Fragment implements View.OnClickLis
         reject.setOnClickListener(this);
         licenceZoom.setOnClickListener(this);
         idZoom.setOnClickListener(this);
+        zoomedImage.setOnClickListener(this);
 
         loadImages();
         loadApplicantData();
-
 
     }
 
@@ -103,28 +114,81 @@ public class DisplayAplicantFragment extends Fragment implements View.OnClickLis
         return inflater.inflate(R.layout.fragment_display_aplicant, container, false);
     }
 
-    public void loadImages(){
+    private void loadImages(){
         Picasso.get().load(applicant.getLicenceFilePath()).fit().into(licenceImageView);
         Picasso.get().load(applicant.getIdFilePath()).fit().into(idImageView);
+
     }
 
+    private  void rejectApplicant(){
+        StorageReference storageReference = storage.getReference();
+        StorageReference applicationRef = storageReference.child("Driver Applicants/" +applicant.getUid());
+        applicationRef.delete();
+    }
+
+    private void acceptApplicant(){
+        StorageReference sourceRef = storage.getReference().child("Driver Applicants/" +applicant.getUid());
+        StorageReference destinyRef = storage.getReference().child("Drivers/");
+
+        sourceRef.getDownloadUrl().addOnSuccessListener(uri -> {
+            destinyRef.putFile(uri);
+            sourceRef.delete();
+
+            addNewDriverData(destinyRef);
+
+        });
+    }
+
+    private void addNewDriverData(StorageReference destinyRef) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("UType","Driver");
+        data.put("LicenceImg", destinyRef.child(applicant.getUid())
+                .child("Licence.jpg").getDownloadUrl().toString());
+        data.put("IdImg", destinyRef.child(applicant.getUid())
+                .child("Id.jpg").getDownloadUrl().toString());
+        data.put("rank", (float)0);
+
+        db.collection("Users").document(applicant.getUid())
+                .set(data, SetOptions.merge());
+    }
+
+    private void zoomInImage(String imgUri){
+        LinearLayout mainLayout = (LinearLayout) appCompatActivity.findViewById(R.id.mainLayout);
+        Picasso.get().load(imgUri).fit().into(zoomedImage);
+        zoomedImage.setVisibility(View.VISIBLE);
+        mainLayout.setVisibility(View.GONE);
+    }
+
+    private void zoomOutImage() {
+        LinearLayout mainLayout = (LinearLayout) appCompatActivity.findViewById(R.id.mainLayout);
+        zoomedImage.setVisibility(View.GONE);
+        mainLayout.setVisibility(View.VISIBLE);
+    }
+
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.expanded_image:
+                zoomOutImage();
+                break;
             case R.id.imageZoomLicence:
-                //Spread Licence Image to full screen ToDo
+                zoomInImage(applicant.getLicenceFilePath());
                 break;
             case R.id.imageZoomId:
-                //Spread id Image to full screen Todo
+                zoomInImage(applicant.getIdFilePath());
                 break;
             case R.id.approveBtn:
-                //approve application and move back to map
+                acceptApplicant();
                 break;
             case R.id.rejectBtn:
-                //reject application and move back to map
+                rejectApplicant();
                 break;
             default:
                 break;
         }
     }
+
+
 }

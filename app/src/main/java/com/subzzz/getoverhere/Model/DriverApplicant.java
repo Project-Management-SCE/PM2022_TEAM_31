@@ -24,6 +24,28 @@ public class DriverApplicant implements Parcelable {
         this.idFilePath = idFilePath;
     }
 
+    protected DriverApplicant(Parcel in) {
+        Uid = in.readString();
+        idNum = in.readString();
+        fName = in.readString();
+        lName = in.readString();
+        email = in.readString();
+        licenceFilePath = in.readString();
+        idFilePath = in.readString();
+    }
+
+    public static final Creator<DriverApplicant> CREATOR = new Creator<DriverApplicant>() {
+        @Override
+        public DriverApplicant createFromParcel(Parcel in) {
+            return new DriverApplicant(in);
+        }
+
+        @Override
+        public DriverApplicant[] newArray(int size) {
+            return new DriverApplicant[size];
+        }
+    };
+
     public String getLicenceFilePath() {
         return licenceFilePath;
     }
@@ -87,6 +109,12 @@ public class DriverApplicant implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-
+        parcel.writeString(Uid);
+        parcel.writeString(idNum);
+        parcel.writeString(fName);
+        parcel.writeString(lName);
+        parcel.writeString(email);
+        parcel.writeString(licenceFilePath);
+        parcel.writeString(idFilePath);
     }
 }
