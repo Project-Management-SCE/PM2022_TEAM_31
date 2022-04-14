@@ -1,6 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/FirsttNameH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="First Name"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/FisrtNameI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:text= "First name"
+            android:gravity="right"
+            android:padding="6dip" />
+
+        <TextView
+            android:id="@+id/EmailH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Email"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/EmailI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:text= "Email"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+
+        <TextView
+            android:id="@+id/phoneH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Phone Number"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/phoneI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:text= "Phone Number"
+            android:gravity="right"
+            android:padding="6dip" />
+
+        <TextView
+            android:id="@+id/LastNameH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Last Name"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/LastNameI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:text="Last Name"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+
+        <TextView
+            android:id="@+id/IDH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="ID Number"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/IDI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:text="ID Number"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+
+        <TextView
+            android:id="@+id/ADRH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Adress"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/ADRI"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:layout_column="0"
+            android:text="Adress"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+        <TextView
+            android:id="@+id/GH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Gender"
+            android:padding="6dip" />
+
+        <Spinner
+            android:id="@+id/gender"
+            android:entries="@array/gender"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+        />
+
+        <TextView
+            android:id="@+id/BDH"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Birth Date"
+            android:padding="6dip" />
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+
+
+        <TextView
+            android:id="@+id/PS1H"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Password"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/PS1I"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:layout_column="0"
+            android:text="Password"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+        <TextView
+            android:id="@+id/PS2H"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#33adff"
+            android:layout_column="0"
+            android:text="Confirm Password"
+            android:padding="6dip" />
+        <EditText
+            android:id="@+id/PS2I"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#999db2"
+            android:layout_column="0"
+            android:text="Confirm Password"
+            android:gravity="right"
+            android:padding="6dip" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#33adff"
+            android:gravity="center"
+            android:left="200dp"
+            android:text="@string/submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="480dp"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
