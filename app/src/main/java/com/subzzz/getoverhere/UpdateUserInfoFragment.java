@@ -3,6 +3,7 @@ package com.subzzz.getoverhere;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -41,6 +42,7 @@ public class UpdateUserInfoFragment extends Fragment implements View.OnClickList
     private EditText fname, lname, phone, address, pass, confpass;
     private TextView email;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private AppCompatActivity appcom;
 
 
 
@@ -58,16 +60,16 @@ public class UpdateUserInfoFragment extends Fragment implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        fname = (EditText) findViewById(R.id.EditFNameUpdate);
-        lname = (EditText) findViewById(R.id.EditLNameUpdate);
-        email = (TextView) findViewById(R.id.EditEmailUpdate);
-        phone = (EditText) findViewById(R.id.EditPhoneUpdate);
-        address = (EditText) findViewById(R.id.EditAddressUpdate);
-        pass = (EditText) findViewById(R.id.EditPasswordUpdate);
-        confpass = (EditText) findViewById(R.id.EditConfPassUpdate);
-        updatebtn = (Button) findViewById(R.id.UpdateDetailsBtn);
-        changepassbtn = (Button) findViewById(R.id.UpdatePassBtn);
+        appcom = new AppCompatActivity(R.layout.fragment_update_user_info);
+        fname = (EditText) appcom.findViewById(R.id.EditFNameUpdate);
+        lname = (EditText) appcom.findViewById(R.id.EditLNameUpdate);
+        email = (TextView) appcom.findViewById(R.id.EditEmailUpdate);
+        phone = (EditText) appcom.findViewById(R.id.EditPhoneUpdate);
+        address = (EditText) appcom.findViewById(R.id.EditAddressUpdate);
+        pass = (EditText) appcom.findViewById(R.id.EditPasswordUpdate);
+        confpass = (EditText) appcom.findViewById(R.id.EditConfPassUpdate);
+        updatebtn = (Button) appcom.findViewById(R.id.UpdateDetailsBtn);
+        changepassbtn = (Button) appcom.findViewById(R.id.UpdatePassBtn);
 
         updatebtn.setOnClickListener(this);
         changepassbtn.setOnClickListener(this);
