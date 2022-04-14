@@ -42,8 +42,12 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_acc);
-        //TODO add components by findId
+        setContentView(R.layout.register);
+        //todo add all components
+
+        createAccBtn = findViewById(R.id.submitBtn);
+
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         createAccBtn.setOnClickListener(this);
@@ -105,13 +109,13 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id.:
-//                    createNewAccount(view);
-//                break;
-//            default:
-//                break;
-//        }
+        switch (view.getId()){
+            case R.id.submitBtn:
+                   // createNewAccount(view);
+                break;
+            default:
+                break;
+        }
     }
 
 }
