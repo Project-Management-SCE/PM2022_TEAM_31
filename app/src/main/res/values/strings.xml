@@ -45,25 +45,10 @@
         <item id="E">E</item>
     </string-array>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="driver_s_for_approval">Driver\'s For Approval</string>
+
     <string name="applicantTitle">Applicant</string>
     <string name="accept">Accept</string>
     <string name="reject">Reject</string>
     <string name="comments">Comments</string>
-    <string-array name="gender">
-        <item id="NS">Not Specific</item>
-        <item id="male">Male</item>
-        <item id="female">Female</item>
-    </string-array>
-    <string-array name="licenseType">
-        <item id="b">B</item>
-        <item id="c">C</item>
-        <item id="d">D</item>
-        <item id="d1">D1</item>
-        <item id="d2">D2</item>
-        <item id="d3">D3</item>
-        <item id="E">E</item>
-    </string-array>
 
 </resources>
