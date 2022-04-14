@@ -12,8 +12,40 @@
     <string name="user_name">User name</string>
     <string name="submit">Submit</string>
     <string name="register">register</string>
+    <string name="email">Email</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="driver_s_for_approval">Driver\'s For Approval</string>
+    <string-array name="gender">
+        <item id="NS">Not Specific</item>
+        <item id="male">Male</item>
+        <item id="female">Female</item>
+    </string-array>
+    <string-array name="licenseType">
+        <item id="b">B</item>
+        <item id="c">C</item>
+        <item id="d">D</item>
+        <item id="d1">D1</item>
+        <item id="d2">D2</item>
+        <item id="d3">D3</item>
+        <item id="E">E</item>
+    </string-array>
+
+
     <string name="applicantTitle">Applicant</string>
     <string name="accept">Accept</string>
     <string name="reject">Reject</string>
