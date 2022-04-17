@@ -85,7 +85,7 @@ public class ApproveNewDriversFragment extends Fragment implements RecyclerViewA
        Fragment fragment = new DisplayAplicantFragment();
 
         fragment.setArguments(bundle);
-        fm.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit();
+        //fm.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit();
 
     }
 }
