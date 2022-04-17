@@ -1,5 +1,7 @@
 package com.subzzz.getoverhere.Model;
 
+import com.google.firebase.Timestamp;
+
 public class Driver extends  User{
     private String licenceNum;
     private String BankAccountNum;
@@ -10,15 +12,15 @@ public class Driver extends  User{
         super();
     }
 
-    public Driver(String userId, String email, String firstName, String lastName, String userName, String idNum, String licenceNum, String bankAccountNum, float rank) {
-        super(userId, email, firstName, lastName, userName, idNum, "Driver");
+    public Driver(String firstName, String lastName, String email, String phoneNum, String idNum, String address, String gender, Timestamp birthDay, String licenceNum, String bankAccountNum, float rank) {
+        super(firstName, lastName, email, phoneNum, idNum, address, gender, birthDay, "Driver");
         this.licenceNum = licenceNum;
         BankAccountNum = bankAccountNum;
         this.rank = rank;
     }
 
-    public Driver(String email, String firstName, String lastName, String userName, String idNum, String licenceNum, String bankAccountNum, float rank) {
-        super(email, firstName, lastName, userName, idNum, "Driver");
+    public Driver(String userId, String firstName, String lastName, String email, String phoneNum, String idNum, String address, String gender, Timestamp birthDay, String licenceNum, String bankAccountNum, float rank) {
+        super(userId, firstName, lastName, email, phoneNum, idNum, address, gender, birthDay, "Driver");
         this.licenceNum = licenceNum;
         BankAccountNum = bankAccountNum;
         this.rank = rank;

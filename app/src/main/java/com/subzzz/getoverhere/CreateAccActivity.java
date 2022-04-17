@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,48 +24,71 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.subzzz.getoverhere.Model.Passenger;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 public class CreateAccActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText emailText;
-    private EditText passText;
-    private EditText confirmPassText;
     private EditText firstName;
     private EditText lastName;
-    private EditText userName;
+    private EditText emailText;
+    private EditText phoneNum;
     private EditText Idnum;
+    private EditText myAddrs;
+    private Spinner genderEntry;
+    private DatePicker birthDay;
+    private EditText passText;
+    private EditText confirmPassText;
     private Button createAccBtn;
 
-    private FirebaseAuth firebaseAuth;
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReference = db.collection("Users");
+    private final CollectionReference collectionReference = db.collection("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-        //TODO add components by findId
+        loadComponents();
 
+    }
+
+    private void loadComponents(){
+        firstName = findViewById(R.id.FisrtNameI);
+        lastName = findViewById(R.id.LastNameI);
+        emailText = findViewById(R.id.EmailI);
+        phoneNum = findViewById(R.id.phoneI);
+        Idnum = findViewById(R.id.IDI);
+        myAddrs = findViewById(R.id.ADRI);
+        genderEntry = findViewById(R.id.gender);
+        birthDay = findViewById(R.id.datePicker);
+        passText = findViewById(R.id.PS1I);
+        confirmPassText = findViewById(R.id.PS2I);
         createAccBtn = findViewById(R.id.submitBtn);
         createAccBtn.setOnClickListener(this);
     }
+
     private void createNewAccount(View v){
-        String emailAddr = emailText.getText().toString().trim();
-        String password = passText.getText().toString().trim();
-        String passwordConfirm = confirmPassText.getText().toString().trim();
         String fname = firstName.getText().toString().trim();
         String lname = lastName.getText().toString().trim();
+        String emailAdd = emailText.getText().toString().trim();
+        String phNum = phoneNum.getText().toString().trim();
         String idnumber = Idnum.getText().toString().trim();
-        String username = userName.getText().toString().trim();
+        String addrs = myAddrs.getText().toString().trim();
+        String gender = genderEntry.getSelectedItem().toString().trim();
+        String password = passText.getText().toString().trim();
+        String passwordConfirm = confirmPassText.getText().toString().trim();
+        Calendar cal = Calendar.getInstance();
+        cal.set(birthDay.getYear(),birthDay.getMonth(),birthDay.getDayOfMonth());
+        Timestamp bDay = new Timestamp(cal.getTime());
 
-
-        if(checkIfEmptyString(emailAddr,"Email") && checkIfEmptyString(password,"Password")
-            && checkIfEmptyString(passwordConfirm,"Confirm Password") && checkIfEmptyString(fname,"First Name")
-            && checkIfEmptyString(lname,"Last Name") && checkIfEmptyString(idnumber,"Id Number")
-            && checkIfEmptyString(username,"Username")){
+        if(checkIfEmptyString(fname,"First Name") || checkIfEmptyString(lname,"Last Name")
+                || checkIfEmptyString(emailAdd,"Email") || checkIfEmptyString(phNum,"Phone Number")
+                || checkIfEmptyString(idnumber,"Id Number") || checkIfEmptyString(addrs,"Address")
+                || checkIfEmptyString(password,"Password") || checkIfEmptyString(passwordConfirm,"Confirm Password")){
             return;
         }
 
@@ -72,24 +98,20 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
             return;
         }
 
-        firebaseAuth.createUserWithEmailAndPassword(emailAddr,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-//                    currentUser = firebaseAuth.getCurrentUser();
-//                    assert currentUser != null;
-//                    final String currentUserId;
+        firebaseAuth.createUserWithEmailAndPassword(emailAdd,password).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                currentUser = firebaseAuth.getCurrentUser();
+                assert currentUser != null;
+                final String currentUserId = currentUser.getUid();
 
-                    Passenger newPassenger = new Passenger(emailAddr,fname,lname,username,idnumber);
-                    collectionReference.document(idnumber).set(newPassenger).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    startActivity(new Intent(CreateAccActivity.this,
-                                            MainActivity.class));
-                                }
-                            });
-                }
+                Passenger newPassenger = new Passenger(currentUserId,fname,lname,emailAdd,phNum,idnumber,addrs,gender,bDay);
+                collectionReference.document().set(newPassenger).
+                        addOnSuccessListener(unused -> {
+                            Toast.makeText(CreateAccActivity.this,"Thank you for Signing up",Toast.LENGTH_LONG)
+                                    .show();
+                            startActivity(new Intent(CreateAccActivity.this,
+                                    LoginActivity.class));
+                        });
             }
         });
 
@@ -113,7 +135,7 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.submitBtn:
-                    //createNewAccount(view);
+                    createNewAccount(view);
                 break;
             default:
                 break;

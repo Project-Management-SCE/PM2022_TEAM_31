@@ -1,41 +1,52 @@
 package com.subzzz.getoverhere.Model;
 
+import com.google.firebase.Timestamp;
+
 public class User {
     private String userId;
-    private String email;
     private String firstName;
     private String lastName;
-    private String userName;
+    private String email;
+    private String phoneNum;
     private String idNum;
+    private String address;
+    private String gender;
+    private Timestamp birthDay;
     private String UType;
 
     public User(){}
 
-    public User(String email, String firstName, String lastName, String userName, String idNum, String UType) {
-        this.email = email;
+    public User(String firstName, String lastName, String email, String phoneNum, String idNum, String address, String gender, Timestamp birthDay, String UType) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.email = email;
+        this.phoneNum = phoneNum;
         this.idNum = idNum;
+        this.address = address;
+        this.gender = gender;
+        this.birthDay = birthDay;
         this.UType = UType;
     }
 
-    public User(String userId, String email, String firstName, String lastName, String userName, String idNum, String UType) {
+    public User(String userId, String firstName, String lastName, String email, String phoneNum, String idNum, String address, String gender, Timestamp birthDay, String UType) {
         this.userId = userId;
-        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.email = email;
+        this.phoneNum = phoneNum;
         this.idNum = idNum;
+        this.address = address;
+        this.gender = gender;
+        this.birthDay = birthDay;
         this.UType = UType;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -54,12 +65,20 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public String getIdNum() {
@@ -70,6 +89,30 @@ public class User {
         this.idNum = idNum;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Timestamp getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Timestamp birthDay) {
+        this.birthDay = birthDay;
+    }
+
     public String getUType() {
         return UType;
     }
@@ -77,8 +120,4 @@ public class User {
     public void setUType(String UType) {
         this.UType = UType;
     }
-
-    public String getUserId() { return userId; }
-
-    public void setUserId(String userId) { this.userId = userId; }
 }
