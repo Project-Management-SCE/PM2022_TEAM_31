@@ -28,6 +28,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class CreateAccActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText firstName;
     private EditText lastName;
@@ -40,12 +42,13 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
     private EditText passText;
     private EditText confirmPassText;
     private Button createAccBtn;
+    private GifImageView loadingImage;
+
 
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final CollectionReference collectionReference = db.collection("Users");
 
     @Override
@@ -67,6 +70,7 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
         birthDay = findViewById(R.id.datePicker);
         passText = findViewById(R.id.PS1I);
         confirmPassText = findViewById(R.id.PS2I);
+        loadingImage = findViewById(R.id.loadingImage);
         createAccBtn = findViewById(R.id.submitBtn);
         createAccBtn.setOnClickListener(this);
     }
@@ -112,6 +116,11 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
                             startActivity(new Intent(CreateAccActivity.this,
                                     LoginActivity.class));
                         });
+            }else{
+                loadingImage.setVisibility(View.GONE);
+                findViewById(R.id.scroll_view_register).setVisibility(View.VISIBLE);
+                Toast.makeText(CreateAccActivity.this,"Could Not SignUp",Toast.LENGTH_LONG)
+                        .show();
             }
         });
 
@@ -135,6 +144,8 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.submitBtn:
+                    findViewById(R.id.scroll_view_register).setVisibility(View.GONE);
+                    loadingImage.setVisibility(View.VISIBLE);
                     createNewAccount(view);
                 break;
             default:

@@ -6,9 +6,25 @@
     android:layout_height="match_parent">
 
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/loadingImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/giphy"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scroll_view_register"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,10 +55,32 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="First name"
                 android:padding="6dip"
-                android:text="First name"
-                android:textColor="#999db2"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/LastNameH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Last Name"
+                android:textColor="#33adff"
                 android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/LastNameI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="Last Name"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
             <TextView
@@ -63,10 +101,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Email"
                 android:padding="6dip"
-                android:text="Email"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
@@ -88,34 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Phone Number"
                 android:padding="6dip"
-                android:text="Phone Number"
-                android:textColor="#999db2"
-                android:textSize="15sp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/LastNameH"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_weight="0.5"
-                android:padding="6dip"
-                android:text="Last Name"
-                android:textColor="#33adff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/LastNameI"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
-                android:padding="6dip"
-                android:text="Last Name"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
@@ -137,10 +149,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="ID Number"
                 android:padding="6dip"
-                android:text="ID Number"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
@@ -162,10 +173,9 @@
                 android:layout_column="0"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Adress"
                 android:padding="6dip"
-                android:text="Adress"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
@@ -225,10 +235,10 @@
                 android:layout_column="0"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="6dip"
-                android:text="Password"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
@@ -250,10 +260,10 @@
                 android:layout_column="0"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
                 android:padding="6dip"
-                android:text="Confirm Password"
-                android:textColor="#999db2"
-                android:textSize="15sp"
+                android:textColorHint="#999db2"
                 android:textStyle="italic" />
 
 
