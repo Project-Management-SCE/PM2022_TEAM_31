@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_id_card"
+            android:title="Profile"/>
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history"
+            android:title="History"/>
+        <item
+            android:id="@+id/nav_act_driver"
+            android:icon="@drawable/ic_driver"
+            android:title="Act As Driver"/>
+        <item
+            android:id="@+id/nav_act_passenger"
+            android:icon="@drawable/ic_passenger"
+            android:title="Act As Passenger"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings"/>
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_share_app"
+                android:icon="@drawable/ic_share_app"
+                android:title="Share App"/>
+
+            <item
+                android:id="@+id/nav_sign_out"
+                android:icon="@drawable/ic_logout"
+                android:title="Sign Out"/>
+        </menu>
+    </item>
+
+
+</menu>
