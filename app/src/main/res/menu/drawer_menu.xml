@@ -6,43 +6,65 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Home"/>
+            android:title="Home" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_id_card"
-            android:title="Profile"/>
+            android:title="Profile" />
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_history"
-            android:title="History"/>
+            android:title="History" />
+    </group>
+
+    <group android:id="@+id/nav_group_admin">
+        <item
+            android:id="@+id/nav_approve_new_driver"
+            android:icon="@drawable/ic_new_driver"
+            android:title="Approve new Drivers" />
+        <item
+            android:id="@+id/nav_manage_users"
+            android:icon="@drawable/ic_manage_users"
+            android:title="Manage Users" />
+    </group>
+
+    <group android:id="@+id/nav_group_driver">
         <item
             android:id="@+id/nav_act_driver"
             android:icon="@drawable/ic_driver"
-            android:title="Act As Driver"/>
+            android:title="Act As Driver" />
         <item
             android:id="@+id/nav_act_passenger"
             android:icon="@drawable/ic_passenger"
-            android:title="Act As Passenger"/>
+            android:title="Act As Passenger" />
+        <item
+            android:id="@+id/nav_describe_car"
+            android:icon="@drawable/ic_car_desc"
+            android:title="Describe your car" />
+    </group>
+
+    <group android:id="@+id/nav_group_passenger">
+        <item
+            android:id="@+id/nav_register_as_driver"
+            android:icon="@drawable/ic_register_as_driver"
+            android:title="Register as driver" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_share_app"
+            android:icon="@drawable/ic_share_app"
+            android:title="Share App" />
+
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
-            android:title="Settings"/>
+            android:title="Settings" />
 
+        <item
+            android:id="@+id/nav_sign_out"
+            android:icon="@drawable/ic_logout"
+            android:title="Sign Out" />
     </group>
-
-    <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nav_share_app"
-                android:icon="@drawable/ic_share_app"
-                android:title="Share App"/>
-
-            <item
-                android:id="@+id/nav_sign_out"
-                android:icon="@drawable/ic_logout"
-                android:title="Sign Out"/>
-        </menu>
-    </item>
-
 
 </menu>

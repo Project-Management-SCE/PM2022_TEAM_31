@@ -39,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
+                android:hint="Driver's License Number"
                 android:padding="6dip"
-                android:text="Driver's License Number"
                 android:textColor="#999db2"
                 android:textSize="20sp"
                 android:textStyle="italic" />
@@ -59,7 +59,7 @@
                 android:textStyle="bold" />
 
             <DatePicker
-                android:id="@+id/datePicker1"
+                android:id="@+id/licenceIssueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
@@ -79,7 +79,7 @@
                 android:textStyle="bold" />
 
             <DatePicker
-                android:id="@+id/datePicker"
+                android:id="@+id/licenceExprDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
@@ -106,6 +106,7 @@
 
 
             <Button
+                android:id="@+id/uploadLicenceBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#33adff"
@@ -117,6 +118,7 @@
                 tools:layout_editor_absoluteY="480dp" />
 
             <Button
+                android:id="@+id/uploadIdBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#33adff"
@@ -128,6 +130,7 @@
                 tools:layout_editor_absoluteY="480dp" />
 
             <Button
+                android:id="@+id/submitDriverApplicationBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#33adff"
