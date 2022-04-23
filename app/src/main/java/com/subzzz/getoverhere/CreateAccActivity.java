@@ -1,23 +1,20 @@
 package com.subzzz.getoverhere;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -25,8 +22,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.subzzz.getoverhere.Model.Passenger;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -139,18 +134,30 @@ public class CreateAccActivity extends AppCompatActivity implements View.OnClick
         }
         return false;
     }
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.submitBtn:
-                    findViewById(R.id.scroll_view_register).setVisibility(View.GONE);
-                    loadingImage.setVisibility(View.VISIBLE);
-                    createNewAccount(view);
+                hideKeyboard();
+                submitAndGotoLogin(view);
                 break;
             default:
                 break;
         }
+    }
+
+    private void submitAndGotoLogin(View view) {
+        findViewById(R.id.scroll_view_register).setVisibility(View.GONE);
+        loadingImage.setVisibility(View.VISIBLE);
+        createNewAccount(view);
     }
 
 
