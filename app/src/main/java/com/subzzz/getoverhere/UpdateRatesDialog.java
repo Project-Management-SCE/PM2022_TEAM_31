@@ -31,7 +31,15 @@ public class UpdateRatesDialog extends AppCompatDialogFragment {
 
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.update_rates_dialog,null);
-
+        builder.setView(view)
+                .setTitle("Current Rate Per Km:")
+                .setNegativeButton("Back", (dialogInterface, i) -> {
+                })
+                .setPositiveButton("Update", (dialogInterface, i) -> {
+                    db.collection("Drive Rates").document("Rates")
+                            .update("currentRate", String.valueOf(rate.getText()));
+                    Toast.makeText(getActivity(), "New Rate is " + rate.getText().toString().trim() + " $", Toast.LENGTH_SHORT).show();
+                });
         rate = view.findViewById(R.id.current_rate_update_text);
         db.collection("Drive Rates").document("Rates").get()
                 .addOnCompleteListener(task -> {
