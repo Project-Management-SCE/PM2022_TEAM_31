@@ -18,14 +18,12 @@ import com.subzzz.getoverhere.R;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private final List<DriverApplicant> applicantList;
-    private final Context context;
-    private final OnApplicantClickListener applicantClickListener;
+    private List<DriverApplicant> applicantList;
+    private OnApplicantClickListener applicantClickListener;
 
 
-    public RecyclerViewAdapter(List<DriverApplicant> applicantList, Context context, OnApplicantClickListener applicantClickListener) {
+    public RecyclerViewAdapter(List<DriverApplicant> applicantList, OnApplicantClickListener applicantClickListener) {
         this.applicantList = applicantList;
-        this.context = context;
         this.applicantClickListener = applicantClickListener;
     }
 
@@ -55,9 +53,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
-        private TextView nameText;
-        private TextView idText;
-        private TextView emailText;
+        private final TextView nameText;
+        private final TextView idText;
+        private final TextView emailText;
         OnApplicantClickListener onApplicantClickListener;
 
         public ViewHolder(@NonNull View itemView, OnApplicantClickListener applicantClickListener) {
