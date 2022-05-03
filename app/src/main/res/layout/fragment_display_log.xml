@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayAplicantFragment">
+
+
+    <ScrollView
+        android:id="@+id/scroll_view_register"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Drive Details"
+            android:textColor="#A6000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/driverFullNameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_weight="1"
+        android:padding="6dip"
+        android:text="Full Name"
+        android:textColor="#33adff"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/driverFullNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:hint="display driver's name"
+        android:padding="6dip"
+        android:textColorHint="#999db2"
+        android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/dateHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="date"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/dateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display drive's date"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/timeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Time"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/timeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display drive's time"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/amountOfPassengersHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Amount Of Passengers"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/amountOfPassengersText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display amount of passengers"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+        <TextView
+            android:id="@+id/startPointHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Start Point"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/startPointText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display start point"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/destinationHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Destination"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/destinationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display destination"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/costHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:text="Cost"
+            android:textColor="#33adff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/costText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="display drive's cost"
+            android:padding="6dip"
+            android:textColorHint="#999db2"
+            android:textStyle="italic" />
+
+        <Button
+
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#33adff"
+            android:gravity="center"
+            android:left="200dp"
+            android:text="Watch Next Drive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="480dp" />
+
+        <Button
+            android:id="@+id/previousButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#33adff"
+            android:gravity="center"
+            android:left="200dp"
+            android:text="Watch Previous Drive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="480dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

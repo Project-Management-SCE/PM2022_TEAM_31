@@ -54,4 +54,47 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="hint_search">Enter Address</string>
+
+    <!---String related to car file-->
+    <String name="carIDH">Car License Number</String>
+    <String name="carIDT">Car License Number</String>
+    <string-array name="ownership">
+        <item id="1">This is my car</item>
+        <item id="2">This is work car</item>
+        <item id="3">Other ownership</item>
+    </string-array>
+    <string-array name="seat">
+        <item id="1">1</item>
+        <item id="4">4</item>
+        <item id="6">6</item>
+        <item id="25">25</item>
+        <item id="50">50</item>
+    </string-array>
+    <string-array name="type">
+        <item id="mini">Mini</item>
+        <item id="private">Private</item>
+        <item id="minivan">Mini-Van</item>
+        <item id="minibus">Mini-Bus</item>
+        <item id="bus">Bus</item>
+        <item id="transit">Transit</item>
+        <item id="track">Track</item>
+    </string-array>
+
+
+    <!--String related to log_row-->
+    <String id="date_row"></String>
+    <String id="time_row"></String>
+    <String id="where_to_row"></String>
+    <String id="from_row"></String>
+    <String id="cost_row"></String>
+
+
+    <!--String related to fragment_row-->
+    <String id="titleLog">Driver Travel Log</String>
+
+    <!--String related to fragment_display_log-->
+    <String id="drive_details">Drive Details</String>
+    <String id="next">Next Drive</String>
+    <String id="previous">Previous Drive</String>
+
 </resources>

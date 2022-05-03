@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view_register"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75sp"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="20dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="20dp"
+            tools:ignore="MissingConstraints">
+
+
+            <TextView
+                android:id="@+id/CarIDH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="CarL License Number"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/CarIDT"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="12-345-67 / 123-45-678"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/ctH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Car Type"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:entries="@array/type" />
+
+            <TextView
+                android:id="@+id/cmnH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Car Manufacturer"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cmnT"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="Example: Toyota"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/cmH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:padding="6dip"
+                android:text="Car Model"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cnT"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="Example: Corolla"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/pH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:padding="6dip"
+                android:text="Production Year"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/pT"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="Example: 2004"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/ownH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Number Of Seats Excluding The Driver "
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/seat"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:entries="@array/seat" />
+
+
+            <TextView
+                android:id="@+id/carColorH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Car Color"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/carColorT"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:hint="Color"
+                android:padding="6dip"
+                android:textColorHint="#999db2"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/OwnershipH"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:padding="6dip"
+                android:text="Ownership"
+                android:textColor="#33adff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/Ownership"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:entries="@array/ownership" />
+
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:backgroundTint="#33adff"
+                android:gravity="center"
+                android:left="200dp"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="480dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
