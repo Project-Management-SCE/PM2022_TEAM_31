@@ -4,19 +4,80 @@ plugins {
     id 'com.google.firebase.appdistribution'
 }
 
+def getVersionCode() {
+    def propertiesFile = file('version.properties')
+
+    if (!propertiesFile.canRead()) {
+        throw new GradleException("Could not read " + propertiesFile.name)
+    }
+
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(propertiesFile))
+
+    def code = properties['VERSION_CODE_PROD'].toInteger()
+
+    gradle.taskGraph.whenReady { tasksGraph ->
+        List<Task> tasks = tasksGraph.getAllTasks()
+
+        for (Task task : tasks) {
+            if (task.name.contains("Release")) {
+                code = code + 1
+                properties['VERSION_CODE_PROD'] = code.toString()
+                properties.store(propertiesFile.newWriter(), null)
+                break
+            }
+        }
+    }
+
+    return code
+}
+
+def getVersionName() {
+    def propertiesFile = file('version.properties')
+
+    if (!propertiesFile.canRead()) {
+        throw new GradleException("Could not read " + propertiesFile.name)
+    }
+
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(propertiesFile))
+
+    def code = properties['VERSION_NAME_PROD'].toFloat()
+
+    gradle.taskGraph.whenReady { tasksGraph ->
+        List<Task> tasks = tasksGraph.getAllTasks()
+
+        for (Task task : tasks) {
+            if (task.name.contains("Release")) {
+                code = code + 0.1
+                properties['VERSION_NAME_PROD'] = code.toString()
+                properties.store(propertiesFile.newWriter(), null)
+                break
+            }
+        }
+    }
+
+    return code
+}
+
 android {
     buildToolsVersion = "32.0.0"
     compileSdk 31
-   
-    defaultConfig {
-        applicationId "com.subzzz.getoverhere"
-        minSdk 24
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+    def code = getVersionCode()
+    def verName = getVersionName().toString()
+
+    defaultConfig {
+            applicationId "com.subzzz.getoverhere"
+            minSdkVersion 19
+            targetSdkVersion 31
+            versionCode code
+            versionName verName
+
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        }
+   
+
 
     buildTypes {
         release {
@@ -24,7 +85,7 @@ android {
                 artifactType = "APK"
                 serviceCredentialsFile = "$rootDir/seasonal-android-firebase.json"
                 releaseNotes = "Release Notes"
-                group= "group-31"
+                groups = "group-31"
             }
         }
         compileOptions {
@@ -78,3 +139,4 @@ android {
 
     }
 }
+
