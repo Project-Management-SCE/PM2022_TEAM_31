@@ -69,8 +69,8 @@ android {
 
     defaultConfig {
             applicationId "com.subzzz.getoverhere"
-            minSdkVersion 19
-            targetSdkVersion 31
+            minSdk 19
+            targetSdk 31
             versionCode code
             versionName verName
 
