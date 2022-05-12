@@ -5,6 +5,7 @@ pipeline
 		docker 
 		{
 			image 'androidsdk/android-31:latest'
+			args '-u root'
 		}
 	}
     stages 
