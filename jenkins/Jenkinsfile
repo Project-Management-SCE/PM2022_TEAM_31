@@ -24,6 +24,7 @@ pipeline {
                     		junit 'app/build/test-results/testDebugUnitTest/*.xml'
                 	}
             	}
+	}
 		
 		stage('Release'){
 			
