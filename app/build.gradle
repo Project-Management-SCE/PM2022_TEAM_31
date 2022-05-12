@@ -22,7 +22,7 @@ android {
         release {
             firebaseAppDistribution {
                 artifactType = "APK"
-                serviceCredentialsFile = "$rootDir/seasonal-android-firebase.json"
+                serviceCredentialsFile = "seasonal-android-firebase.json"
                 releaseNotes = "Release Notes"
                 group= "group-31"
             }
