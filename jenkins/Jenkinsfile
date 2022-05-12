@@ -47,6 +47,9 @@ pipeline
 				echo '& Uploading to Testers'
 				sh 'chmod +x gradlew'
 				sh './gradlew assembleRelease appDistributionUploadRelease'
+				sh 'git add app/version.properties'
+				sh 'git commit -m "New Version"'
+				sh 'git push origin master'
 			}
 			
 			
