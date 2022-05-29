@@ -32,7 +32,8 @@ pipeline
 		        {
 	                	always
 	                	{
-	                    		junit 'app/build/test-results/testDebugUnitTest/*.xml'
+					echo 'Finished Testing'
+	                    		/*junit 'app/build/test-results/testDebugUnitTest/*.xml'*/
 	                	}
 	        	}
 	    }
