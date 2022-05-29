@@ -132,10 +132,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //todo add manage users fragment
 
                 break;
+            case R.id.nav_update_rates:
+                openRatesDialog();
+                break;
             case R.id.nav_act_driver:
                 //todo add act as driver fragment/action
                 actAs("Driver");
-
                 break;
             case R.id.nav_act_passenger:
                 //todo add act as passenger fragment/action
@@ -163,6 +165,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void openRatesDialog() {
+        UpdateRatesDialog updateRatesDialog = new UpdateRatesDialog();
+        updateRatesDialog.show(getSupportFragmentManager(),null);
     }
 
 
