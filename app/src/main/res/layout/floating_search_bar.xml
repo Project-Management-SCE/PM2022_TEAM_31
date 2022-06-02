@@ -5,44 +5,5 @@
     android:layout_height="match_parent"
     android:elevation="8dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="319dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:elevation="8dp"
-        app:cardBackgroundColor="@color/Gold_Foil"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/floating_state_value_et"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/hint_search"
-                android:inputType="textPersonName"
-                android:paddingLeft="16dp"
-                android:textColor="@color/Vampire_Black" />
-
-            <ImageButton
-                android:id="@+id/floating_search"
-                android:layout_width="13dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_search"
-                app:srcCompat="@drawable/ic_search" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
