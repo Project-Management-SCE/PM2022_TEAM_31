@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 replaceFragment(new MapsFragment());
                 break;
             case R.id.nav_profile:
-                replaceFragment(new ProfileFragment());
+                replaceFragment(new UpdateUserInfoFragment());
                 break;
             case R.id.nav_history:
                 //todo add history fragment
