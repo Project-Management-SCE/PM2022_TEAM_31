@@ -132,7 +132,7 @@ public class UpdateUserInfoFragment extends Fragment implements View.OnClickList
         data.put("firstName",strfname);
         data.put("lastName",strlname);
         data.put("phoneNum",strphone);
-        data.put("Address",strfname);
+        data.put("address",strfname);
         db.collection("Users").document(currentUser.getUserId()).set(data, SetOptions.merge());
         db.collection("Users").whereEqualTo("userId",currentUser.getUserId()).get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
